@@ -14,33 +14,65 @@
 
 ## 例
 
-```
-<?php
-interface Printer
-{
-    public function print(); //なんらか標準出力する
-}
-
-class PrinterA implements Printer
-{
-    public function print()
-    {
-        print "PrinterA";
-    }
-}
-
-class PrinterB implements Printer
-{
-    public function print()
-    {
-        return "PrinterB" //仕様違反
-    }
-}
+こちらがわかりやすい, https://github.com/ngiasim/SOLID/blob/master/3-LSP.php
 
 ```
+// Bad Example
 
-PHPの場合がわかりやすく, 上記のようにPrinterを実装したクラスのprint()の実装の動きが統一されていないと, 外から呼ぶときに値が返ってきているか確認してから使う羽目になってしまう。
-こうならないよう仕様を統一しましょうね, という原則だ。
+class Bird
+{
+        public function  Fly()
+        {
+            return “I can Fly”;
+        }
+}
+
+class Parrot extends Bird
+{
+        public function  Fly()
+        {
+            return “I can Fly”;
+        }
+}
+
+class Ostrich extends Bird
+{
+        public function  Fly()
+        {
+            return “I can Fly”;
+            // But ostrich can't fly
+        }
+}
+
+
+
+// Good Example
+
+class Bird{
+	// Methods related to birds
+}
+
+class FlyingBirds extends Bird
+{
+        public function  Fly()
+        {
+            Return “I can Fly”;
+        }
+}
+
+class Parrot extends FlyingBirds{
+        public function  Fly()
+        {
+            Return “I can Fly”;
+        }
+}
+
+class Ostrich extends Bird{
+      // Methods related to birds
+}
+
+
+```
 
 ## 参考文献
 

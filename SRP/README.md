@@ -6,7 +6,8 @@ Golangによる例で示す。
 
 - SRP = Single Responsibility Principle
 - 「1つのクラスは1つの責任を持つべきで、1つしか持ってはいけない。」 (書籍「Hands-On Software Architecture with Golang」)
-- たとえば。。。utilsというパッケージ名の場合、雑多な機能の溜まり場となってしまう恐れがあるため、このような名前は避けるべきである
+    - 責務が多いクラスは他クラスと密結合になりがちで変更が入れづらくなるからやめておこう！という話
+    - いわゆるUtilクラスとかManagerクラスとかがそれになりやすい
 
 ## 例
 

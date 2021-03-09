@@ -13,14 +13,8 @@ func (userController *UserContoller) Get() {
 	//処理する
 }
 
-func NewUserMySQLController() *UserContoller {
+func NewUserController(service *service.UserLikeService) *UserContoller {
 	return &UserContoller{
-		service: service.NewUserLikeMySQLService(),
-	}
-}
-
-func NewUserPostgresController() *UserContoller {
-	return &UserContoller{
-		service: service.NewUserLikePostgresService(),
+		service: service,
 	}
 }
